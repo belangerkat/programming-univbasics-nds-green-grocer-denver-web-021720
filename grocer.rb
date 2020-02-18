@@ -80,9 +80,9 @@ def checkout(cart, coupons)
 
     counter += 1
   end
+  consolidated_cart
   if total > 100
     total -= (total * 0.10)
   end
-  consolidated_cart
   total
 end
