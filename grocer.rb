@@ -68,21 +68,21 @@ end
 
 def checkout(cart, coupons)
   total = 0
-  i = 0
+  counter = 0
 
-  ccart = consolidate_cart(cart)
-  apply_coupons(ccart, coupons)
-  apply_clearance(ccart)
+  consolidated_cart = consolidate_cart(cart)
+  apply_coupons(consolidated_cart, coupons)
+  apply_clearance(consolidated_cart)
 
-  while i < ccart.length do
-    total += items_total_cost(ccart[i])
-    i += 1
+  while counter < consolidated_cart.length do
+    total += items_total_cost(consolidated_cart[i])
+    counter += 1
   end
 
   total >= 100 ? total * (1.0 - BIG_PURCHASE_DISCOUNT_RATE) : total
 end
 
 
-def items_total_cost(i)
-  i[:count] * i[:price]
+def items_total_cost(counter)
+  counter[:count] * counter[:price]
 end
