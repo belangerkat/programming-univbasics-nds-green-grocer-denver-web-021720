@@ -77,7 +77,6 @@ def checkout(cart, coupons)
       total += items_total_cost(ccart[i])
       i += 1
     end
-
     total >= 100 ? total * (1.0 - BIG_PURCHASE_DISCOUNT_RATE) : total
   end
 end
